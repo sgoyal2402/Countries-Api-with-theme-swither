@@ -4,18 +4,10 @@ import Search from "./home-page/Search";
 import Region from "./home-page/Region";
 import Header from "./home-page/Header";
 
-function HomePage() {
-  const [allC, setAllC] = useState([]);
+function HomePage(props) {
   const [countries, setCountries] = useState([]);
   const [url, setUrl] = useState("https://restcountries.eu/rest/v2/all");
-
-  useEffect(() => {
-    fetch("https://restcountries.eu/rest/v2/all")
-      .then((res) => res.json())
-      .then((result) => {
-        setAllC(result);
-      });
-  }, []);
+  const [isFilter, setIsFilter] = useState(false);
 
   useEffect(() => {
     fetch(url)
@@ -29,16 +21,23 @@ function HomePage() {
     <>
       <Header />
       <div className="container flex mt-4 mb-3">
-        <Search allC={allC} changeCountries={setCountries} changeUrl={setUrl} />
+        <Search
+          setIsFilter={setIsFilter}
+          allC={props.allC}
+          changeCountries={setCountries}
+          changeUrl={setUrl}
+        />
         <Region
-          allC={allC}
+          isFilter={isFilter}
+          setIsFilter={setIsFilter}
+          allC={props.allC}
           changeCountries={setCountries}
           changeUrl={setUrl}
           countries={countries}
         />
       </div>
 
-      <Countries countries={countries} />
+      <Countries detail={props.detail} countries={countries} />
     </>
   );
 }

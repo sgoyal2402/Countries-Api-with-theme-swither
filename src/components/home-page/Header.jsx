@@ -6,7 +6,7 @@ export default function Header() {
       <div className="container flex">
         <h1>Where in the World?</h1>
         <button className="btn btn-primary ml-auto">
-          <i class="far fa-moon"></i> Dark Mode
+          <i className="far fa-moon"></i> Dark Mode
         </button>
       </div>
     </header>

@@ -5,6 +5,13 @@ export default function Search(props) {
   const [query, setQuery] = useState("");
 
   function handleChange(event) {
+    props.setIsFilter(false);
+    if (!props.isFilter) {
+      for (let i = 0; i < 5; i++) {
+        document.getElementById(i).classList.remove("active");
+      }
+      props.changeCountries(props.allC);
+    }
     const value = event.target.value;
     setQuery(value);
 

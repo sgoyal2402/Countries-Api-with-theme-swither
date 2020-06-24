@@ -14,20 +14,29 @@ export default function Region(props) {
     for (let i = 0; i < 5; i++) {
       document.getElementById(i).classList.remove("active");
     }
+    props.setIsFilter(true);
 
     const index = event.target.id;
     document.getElementById(index).classList.add("active");
 
     setRegion((prevV) => {
       if (prevV === regions[index] && props.countries !== props.allC) {
+        props.setIsFilter(false);
         props.changeCountries(props.allC);
+        console.log("unset");
         document.getElementById(index).classList.remove("active");
+        props.changeUrl("https://restcountries.eu/rest/v2/all");
+        return "";
       }
+      const url = regionUrl(regions[index]);
+      console.log(url);
+      props.changeUrl(url);
       return regions[index];
     });
 
-    const url = regionUrl(regions[index]);
-    props.changeUrl(url);
+    // if (!props.isFilter) {
+    //   props.changeUrl("https://restcountries.eu/rest/v2/all");
+    // }
   }
 
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];

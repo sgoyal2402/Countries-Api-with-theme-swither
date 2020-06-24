@@ -9,11 +9,14 @@ const Countries = (props) => {
           props.countries.map((country) => {
             return (
               <div
-                id={country.numericCode}
                 key={country.numericCode}
-                className="col-xl-3 col-lg-4 col-md-6 col-sm-12"
+                className="col-xl-3 col-lg-4 col-md-6 col-sm-12 mobile"
               >
-                <Card country={country} />
+                <Card
+                  detail={props.detail}
+                  id={country.alpha3Code}
+                  country={country}
+                />
               </div>
             );
           })}
