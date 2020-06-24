@@ -19,24 +19,25 @@ function HomePage(props) {
 
   return (
     <>
-      <Header />
-      <div className="container flex mt-4 mb-3">
-        <Search
-          setIsFilter={setIsFilter}
-          allC={props.allC}
-          changeCountries={setCountries}
-          changeUrl={setUrl}
-        />
-        <Region
-          isFilter={isFilter}
-          setIsFilter={setIsFilter}
-          allC={props.allC}
-          changeCountries={setCountries}
-          changeUrl={setUrl}
-          countries={countries}
-        />
+      <div className="sticky">
+        <Header />
+        <div className="container flex mt-4 mb-3">
+          <Search
+            setIsFilter={setIsFilter}
+            allC={props.allC}
+            changeCountries={setCountries}
+            changeUrl={setUrl}
+          />
+          <Region
+            isFilter={isFilter}
+            setIsFilter={setIsFilter}
+            allC={props.allC}
+            changeCountries={setCountries}
+            changeUrl={setUrl}
+            countries={countries}
+          />
+        </div>
       </div>
-
       <Countries detail={props.detail} countries={countries} />
     </>
   );
