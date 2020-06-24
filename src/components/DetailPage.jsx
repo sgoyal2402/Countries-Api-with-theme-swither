@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { codeUrl } from "./fetchCountries";
 import Content from "./detail-page/Content";
-import Header from "./home-page/Header";
 
 function DetailPage(props) {
   function handleClick() {
@@ -21,10 +20,9 @@ function DetailPage(props) {
   }, [url]);
   return (
     <>
-      <Header />
       <div className="container mt-5">
         <button onClick={handleClick} className="btn btn-lg btn-primary back">
-          <i class="fas fa-arrow-left mr-2"></i> Back
+          <i className="fas fa-arrow-left mr-2"></i> Back
         </button>
         {Object.keys(country).length !== 0 ? (
           <Content

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import HomePage from "./HomePage";
 import DetailPage from "./DetailPage";
+import Header from "./home-page/Header";
 
 function App() {
   const [detail, setDetail] = useState("ind");
@@ -21,6 +22,7 @@ function App() {
   }, []);
   return (
     <>
+      <Header />
       <div id="home">
         <HomePage detail={showDetail} allC={allC} />
       </div>

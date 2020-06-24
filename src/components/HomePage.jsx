@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Countries from "./home-page/Countries";
 import Search from "./home-page/Search";
 import Region from "./home-page/Region";
-import Header from "./home-page/Header";
 
 function HomePage(props) {
   const [countries, setCountries] = useState([]);
@@ -20,7 +19,6 @@ function HomePage(props) {
   return (
     <>
       <div className="sticky">
-        <Header />
         <div className="container flex mt-4 mb-3">
           <Search
             setIsFilter={setIsFilter}
