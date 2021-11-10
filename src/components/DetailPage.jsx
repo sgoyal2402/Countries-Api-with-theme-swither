@@ -10,17 +10,20 @@ function DetailPage(props) {
   }
   const url = codeUrl(props.detail);
   const [country, setCountry] = useState({});
+  const [isF, setIsF] = useState(true);
 
   useEffect(() => {
+    setIsF(true);
     fetch(url)
       .then((res) => res.json())
       .then((result) => {
         setCountry(result);
+        setIsF(false);
       });
   }, [url]);
   return (
     <>
-      <div className="container mt-5">
+      {!isF && <div className="container mt-5">
         <button onClick={handleClick} className="btn btn-lg btn-primary back">
           <i className="fas fa-arrow-left mr-2"></i> Back
         </button>
@@ -33,7 +36,13 @@ function DetailPage(props) {
         ) : (
           ""
         )}
-      </div>
+      </div>}
+      {isF && 
+      <div className="d-flex justify-content-center align-items-center" style={{height: "80vh"}}>
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>}
     </>
   );
 }

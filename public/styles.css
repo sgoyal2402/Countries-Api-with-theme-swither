@@ -13,6 +13,10 @@ body {
   background-color: var(--bg-color);
 }
 
+.spinner-border{
+  color: var(--text-color) !important;
+}
+
 .sticky {
   position: sticky;
   top: 0;

@@ -49,11 +49,11 @@ function Content(props) {
             </p>
             <p>
               <strong>Currencies:</strong>{" "}
-              {props.country.currencies.map((currency) => `${currency.name}, `)}
+              {props.country.currencies !== undefined && props.country.currencies.map((currency) => `${currency.name}, `)}
             </p>
             <p>
               <strong>Languages:</strong>{" "}
-              {props.country.languages.map((language) => `${language.name}, `)}
+              {props.country.languages !== undefined && props.country.languages.map((language) => `${language.name}, `)}
             </p>
           </div>
         </div>
