@@ -5,7 +5,7 @@ import Region from "./home-page/Region";
 
 function HomePage(props) {
   const [countries, setCountries] = useState([]);
-  const [url, setUrl] = useState("https://restcountries.eu/rest/v2/all");
+  const [url, setUrl] = useState("https://restcountries.com/v2/all");
   const [isFilter, setIsFilter] = useState(false);
 
   useEffect(() => {

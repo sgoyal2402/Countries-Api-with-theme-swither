@@ -2,6 +2,7 @@ import React from "react";
 
 function Content(props) {
   let borderC = [];
+  if(props.country.borders !== undefined)
   props.country.borders.forEach((b) => {
     let border = props.allC.filter((country) => {
       return country.alpha3Code === b;
